@@ -1,41 +1,123 @@
 
 <div class="container my-1 border rounded p-5">
-    <h3>Novo Agendamento</h3>
-    <hr>
-    <form>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="slc-especialidades">Especialidade</label>
-                <select name="selectEspecialidades" id="slc-especialidades" class="form-control">
-                    <option *ngFor="let espec of especialidades" value="espec.id">{{espec.nome}}</option>
-                </select>
+        <h3>Novo Agendamento</h3>
+        <hr>
+        <form>
+                <!-- <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        <label for="in-clinica">Nome</label>
+                        <input type="text" class="form-control" name="inNome" id="in-nome" [value]=" " >
+                    </div>
+
+                    <div class="form-group col-md-6">
+                            <label for="in-clinica">Sobrenome</label>
+                            <input type="text" class="form-control" name="inNome" id="in-nome" [value]=" " >
+                        </div>
+                </div> -->
+
+                <div class="form-row">
+
+                        <div class="form-group col-md-3">
+                                <label for="slc-especialidades">Tipo de Agendamento</label>
+                                <select name="selectTipoAgendamento" id="slc-TipoAgendamento" class="form-control">
+                                    <option *ngFor="let tipo of tipoAgendamento" value="tipo.id">{{tipo.nome}}</option>
+                                </select>
+                        </div>
+    
+                    <div class="form-group col-md-3">
+                        <label for="slc-especialidades">Especialidade</label>
+                        <select name="selectEspecialidades" id="slc-especialidades" class="form-control">
+                            <option *ngFor="let espec of especialidades" value="espec.id">{{espec.nome}}</option>
+                        </select>
+                    </div>
+    
+                    <!-- <div class="form-group col-md-2"></div> -->
+                    <div class="form-group col-md-3">
+                            <label for="in-calendario">Data do Agendamento</label>
+                            <input matInput id="in-calendario" class="form-control" [matDatepicker]="picker" placeholder="Escolha a Data">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>             
+                    </div>
+
+                    <div class="form-group col-md-3">
+                            <label for="in-calendario">Horário do Agendamento</label>
+                            <input matInput  type="time" id="in-hora" class="form-control" value=" " placeholder="Escolha o Horário">
+                                    
+                        </div>
+                    
+                </div>
+
+            
+           
+             <!-- --- -->
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="in-clinica">Clinica</label>
+                    <input type="text" class="form-control" name="inClinica" id="in-clinica" [value]="clinicaSolicitante" disabled>
+                </div>     
+                <div class="form-group col-md-2"></div>
+                <!-- <div class="form-group col-md-5">
+                        <label for="slc-medico" >Medico</label>
+                        <select id="slc-medico" class="form-control">
+                            <option *ngFor="let medico of medicos" value="{{medico.id}}">{{medico.nome}}</option>
+                        </select>
+                    </div> -->
+                
+                    <div class="form-group col-md-6">
+                            <div class="float-left">
+                                    <button class="btn btn-primary">Buscar</button>
+                                    <span class="mx-2"></span>
+                                    <button class="btn btn-warning">Cancelar</button>
+                            </div>
+                    </div>  
+                
             </div>
-            <div class="form-group col-md-2"></div>
-            <div class="form-group col-md-4">
-                <label for="in-calendario">Calendario</label>
-                <input matInput id="in-calendario" class="form-control" [matDatepicker]="picker" placeholder="Escolha a Data">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>             
+                  
+        </form>
+        
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Crm</th>
+                        <th scope="col">Especialidade</th>
+                        <th scope="col">Data/Hora</th>
+                        <th scope="col"> </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>CLINICA MEDICA</td>
+                        <td>@mdo</td>
+                        <td> <button class="btn btn-primary">Agendar</button></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>ORTOPEDIA</td>
+                        <td>@fat</td>
+                        <td> <button class="btn btn-primary">Agendar</button></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td >Larry the Bird</td>
+                        <td >NUTRICAO</td>
+                        <td>@twitter</td>
+                        <td> <button class="btn btn-primary">Agendar</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="in-clinica">Clinica</label>
-                <input type="text" class="form-control" name="inClinica" id="in-clinica" [value]="clinicaSolicitante" disabled>
-            </div>           
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="slc-medico" >Medico</label>
-                <select id="slc-medico" class="form-control">
-                    <option *ngFor="let medico of medicos" value="{{medico.id}}">{{medico.nome}}</option>
-                </select>
-            </div>
-        </div>        
-    </form>
-    <div class="float-right">
-        <button class="btn btn-primary">Agendar</button>
-        <span class="mx-2"></span>
-        <button class="btn btn-warning">Cancelar</button>
-    </div>
+
+
+
 </div>
+    
